@@ -1,7 +1,7 @@
 {
 	"name": "kamalan",
 	"version": "0.0.1",
-	"description": "kamalan Web Framework",
+	"description": "Kamalan Web Framework",
 	"keywords": [
 		"web",
 		"framework"
@@ -9,7 +9,7 @@
 	"homepage": "https://github.com/cfsghost/Kamalan",
 	"author": {
 		"name": "Fred Chien(錢逢祥)",
-		"email": "fred@mandice.com",
+		"email": "cfsghost@gmai.com",
 		"web": "http://people.linux.org.tw/~fred/"
 	},
 	"license": "MIT",
@@ -24,6 +24,7 @@
 		"node": ">= 0.6.0"
 	},
 	"dependencies": {
+		"express": ">= 2.5.9"
 	},
 	"main": "./index.js"
 }
