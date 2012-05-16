@@ -1,6 +1,5 @@
-var kamalan = require('../../');
+var kamalan = require('../../index');
+var port = 57788;
 
-var app = kamalan();
-
-app.listen(57788);
-console.log('Kamalan started on port 57788');
+kamalan.createServer();
+kamalan.listen(port);
