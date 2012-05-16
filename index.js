@@ -4,13 +4,60 @@ function Kamalan(config) {
 
     var _port = 3000,
         _defaultConfig,
+        _server,
         // constanst
         STATIC_PATH = __dirname + '/assert',
+        // handler
+        _createServer,
+        _listen,
+        // event
         // setter
         _setConfig,
         _setPort,
         // getter
         _getPort;
+
+    //===============
+    // Handler
+    //===============
+
+    /**
+     * handler listen event, wrap express listen
+     * _listen
+     * parameter: port {Number}
+     * return: void
+     */
+    _listen = function (port) {
+        if (typeof _server !== "object") {
+            console.warn("Listen app server fail");
+            return;
+        }
+
+        port = port || _defaultConfig.port;
+        _server.listen(port);
+        console.log("Start to listen port: " + port);
+    };
+
+    /**
+     * handler create server, wrap express server, and contain http object to private object in kamalan.
+     * _createServer
+     * parameter: config {Object}
+     * return: void
+     */
+    _createServer = function (config) {
+        if (typeof config === "object") {
+            _server = _express.createServer(config);
+        }
+        else {
+            _server = _express.createServer();
+        }
+
+        return _server;
+    };
+
+    //===============
+    // Setter
+    //===============
 
     /**
      * Setter kamalan's configruration.
@@ -24,8 +71,6 @@ function Kamalan(config) {
         for(var i in config) {
             _defaultConfig[i] = config[i];
         }
-
-        console.log(_defaultConfig);
     };
 
     /**
@@ -38,6 +83,9 @@ function Kamalan(config) {
         _port = port;
     };
 
+    //===============
+    // Getter
+    //===============
 
     /**
      * Getter port
@@ -74,7 +122,8 @@ function Kamalan(config) {
         get : {
             port : _getPort
         },
-        createServer: _express.createServer
+        createServer: _createServer,
+        listen: _listen
     };
 }
 
