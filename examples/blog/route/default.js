@@ -3,7 +3,7 @@ module.exports = {
 	'/': index
 };
 
-function index(app, req, res) {
+function index(req, res) {
 
 	res.render('index', { title: 'Kamalan Example' });
 };
