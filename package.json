@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "name": "kamalan",
     "version": "0.0.1",
     "description": "kamalan Web Framework",
@@ -27,7 +26,8 @@
     "dependencies": {
         "express" : "2.5.9",
         "jade" : "0.26.0",
-        "ejs" : "0.7.1"
+        "ejs" : "0.7.1",
+        "uglify-js" : ">= 1.2.6"
     },
     "main": "./index.js"
 }
